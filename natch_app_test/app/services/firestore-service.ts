@@ -1,19 +1,32 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { DbItem } from '../config/items';
-
-
 
 export const getItems = async () => {
   try {
-    const snapshot = await getDocs(collection(db, 'test'));
-    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const item = await getDocs(collection(db, 'test'));
+    return item.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   }
   catch (e) {
     console.error("Error getting documents", e)
     return [];
   }
+}
 
+export const getItem = async (id: string) => {
+  try {
+    const ref = doc(db, "test", id,);
+    const item = await getDoc(ref);
+
+    if (item.exists()) {
+      console.log(item.data());   // { name: "Alice", age: 30, ... }
+      return item;
+    } else {
+      console.log("No such document");
+    }
+  }
+  catch (e) {
+    return null;
+  }
 }
 
 export const createItem = async (name: string, number: number) => {
@@ -29,11 +42,6 @@ export const createItem = async (name: string, number: number) => {
   }
 }
 
-
-
-// export async function getItems() {
-//   const citiesCol = collection(db, 'test');
-//   const citySnapshot = await getDocs(citiesCol);
-//   const cityList = citySnapshot.docs.map(doc => doc.data());
-//   return cityList;
-// }
+export const deleteItem = async (id: string) => {
+  await deleteDoc(doc(db, "test", id));
+}
