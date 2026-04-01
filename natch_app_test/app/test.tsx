@@ -3,9 +3,10 @@ import { Alert, Button, Text, TextInput, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 
-export default function Index() {
+export default function Test() {
   return (
     <SafeAreaProvider>
+
       <View
         style={{
           flex: 1,
@@ -15,20 +16,13 @@ export default function Index() {
         }}
       >
         <Text>Edit app/index.tsx to edit this screen.</Text>
+        <Text>Hello World!</Text>
         <Button title="Alert" onPress={() => alert('woop')}></Button>
-        <View style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 5,
-        }}>
-
-          <Button title="To Test" onPress={() => router.navigate("/test")} />
-          <Button title="To States" onPress={() => router.navigate("/states")} />
-        </View>
-
+        
 
       </View>
+
+
     </SafeAreaProvider>
 
   );
