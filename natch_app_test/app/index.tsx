@@ -25,6 +25,7 @@ export default function Index() {
 
           <Button title="To Test" onPress={() => router.navigate("/test")} />
           <Button title="To States" onPress={() => router.navigate("/states")} />
+          <Button title="To Database" onPress={() => router.navigate("/database")} />
         </View>
 
 
