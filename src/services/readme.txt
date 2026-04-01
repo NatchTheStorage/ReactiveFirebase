@@ -1,0 +1,2 @@
+The services directory is where you should put all your code related to external services, such as APIs. 
+It's a good idea to organize these services into separate subdirectories for each service type.

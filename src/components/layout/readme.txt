@@ -1,0 +1,1 @@
+structural components such as headers, footers or screen spacers go here
