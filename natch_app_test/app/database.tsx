@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 import { colors } from "./components/styles/styles";
 import { createItem, deleteItem, getItem, getItems } from "./services/firestore-service";
-
-
-
+import WopSection, { BoxSection } from "./components/boxSection/boxSection";
 
 
 export default function Database() {
@@ -12,7 +10,6 @@ export default function Database() {
   const [numberInput, setNumberInput] = useState<number>()
   const [items, setItems] = useState<any[] | undefined>([])
   const [item, setItem] = useState<any | undefined>()
-
 
   const displayTest = async () => {
     await getItems()
@@ -58,6 +55,9 @@ export default function Database() {
 
       }}
     >
+      {/* <BoxSection item={"t"}></BoxSection> */}
+      <WopSection t="test" />
+      {BoxSection('t')}
       <View>
         <Text>Item</Text>
         <Button title="Get Items" onPress={displayTest}></Button>
@@ -92,7 +92,7 @@ export default function Database() {
       <Text>Name: {textInput}</Text>
       <Text>Number: {numberInput}</Text>
       <Button disabled={!numberInput} title="Submit" onPress={() => submit(textInput, numberInput || 0)}></Button>
-    </View>
+    </View >
 
   );
 }

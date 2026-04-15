@@ -5,7 +5,7 @@ import { Alert, Button, Text, TextInput, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { styles } from "./components/styles/styles";
 
-export default function States() {
+export default function Interview() {
   const [increment, setIncrement] = useState(0)
 
   useEffect(() => {
